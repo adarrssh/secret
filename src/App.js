@@ -48,7 +48,9 @@ function App() {
   })
 
   useEffect(()=>{
-    fetchprofil()
+    if(localStorage.getItem("token")){
+      fetchprofil()
+    }
   },[])
 
   // fetching profile details
