@@ -24,7 +24,7 @@ const MainNavbar = ({isLoggedIn, setIsLoggedIn,signupDetails}) => {
                     <li onClick={()=>{navigate("/wallet");setIsnavOpen(false)}}>Wallet</li>
                     <li onClick={()=>{navigate("/contactUs");setIsnavOpen(false)}}>Contact Us</li>
                     <li onClick={()=>{navigate("/profile");setIsnavOpen(false)}}>Profile</li>
-                    <li className='mobile-logout' onClick={()=>{localStorage.clear(); setIsLoggedIn(""); navigate("/login");setIsnavOpen(false)}}>Logout</li>
+                    <li className='mobile-logout' onClick={()=>{localStorage.clear(); setIsLoggedIn(""); navigate("/");setIsnavOpen(false)}}>Logout</li>
                 </ul>
         </nav>
        <nav className='main-navbar'>

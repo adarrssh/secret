@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import "./css/dashboard.css"
 import girlBudget from "../../images/girlBudget.png"
@@ -8,7 +9,7 @@ import axios from 'axios'
 
 
 
-const Dasboard = ({signupDetails}) => {
+const Dasboard = ({signupDetails , fetchprofile,setsignupDetails,setUpdateItem}) => {
   const investurl = "https://growpital.herokuapp.com/invest/investment";
 
   // total amount invest
@@ -34,10 +35,25 @@ const Dasboard = ({signupDetails}) => {
     }
   ]
 
+  useEffect(()=>{
+    if(localStorage.getItem("token")){
+      fetchprofile()
+    }else{
+      setsignupDetails("")
+      setUpdateItem("")
+    }
+  },[])
 
+  useEffect(()=>{
+    if(!localStorage.getItem("tokken")){
+    
+    }
+  },[])
 
   useEffect(() => {
-    getinvest(investurl)
+    if(localStorage.getItem("token")){
+      getinvest(investurl)
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
